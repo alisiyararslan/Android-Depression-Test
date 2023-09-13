@@ -15,24 +15,26 @@
             app:destination="@id/testFragment" />
     </fragment>
     <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.alisiyararslan.depressiontest.view.QuestionFragment"
+        android:label="fragment_question"
+        tools:layout="@layout/fragment_question" >
+        <action
+            android:id="@+id/action_questionFragment_to_resultsFragment"
+            app:destination="@id/resultsFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/testFragment"
         android:name="com.alisiyararslan.depressiontest.view.TestFragment"
         android:label="fragment_test"
         tools:layout="@layout/fragment_test" >
         <action
-            android:id="@+id/action_testFragment_to_resultsFragment"
-            app:destination="@id/resultsFragment" />
-        <action
-            android:id="@+id/action_testFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_testFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultsFragment"
         android:name="com.alisiyararslan.depressiontest.view.ResultsFragment"
         android:label="fragment_results"
-        tools:layout="@layout/fragment_results" >
-        <action
-            android:id="@+id/action_resultsFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_results" />
 </navigation>

@@ -36,12 +36,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFragmentHome.setOnClickListener {
-            val action=HomeFragmentDirections.actionHomeFragmentToTestFragment()
-            Navigation.findNavController(it).navigate(action)
-
-            //Navigation.findNavController(view).navigate(R.id.testFragment)
-        }
+//        binding.buttonFragmentHome.setOnClickListener {
+//            val action=HomeFragmentDirections.actionHomeFragmentToTestFragment()
+//            Navigation.findNavController(it).navigate(action)
+//
+//            //Navigation.findNavController(view).navigate(R.id.testFragment)
+//        }
     }
 
 

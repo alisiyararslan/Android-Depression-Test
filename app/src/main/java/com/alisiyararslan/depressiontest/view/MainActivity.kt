@@ -29,30 +29,42 @@ class MainActivity : AppCompatActivity() {
 
     fun homeButtonClicked(view : View){
 
-        val fragmentManager=supportFragmentManager
-        val fragmentTransaction=fragmentManager.beginTransaction()
+//        val fragmentManager=supportFragmentManager
+//        val fragmentTransaction=fragmentManager.beginTransaction()
+//
+//        val homeFragment=HomeFragment()
+//        fragmentTransaction.replace(R.id.fragmentContainerView,homeFragment).commit()
 
-        val homeFragment=HomeFragment()
-        fragmentTransaction.replace(R.id.fragmentContainerView,homeFragment).commit()
+        var navController = Navigation.findNavController(this, R.id.fragmentContainerView)
+
+        navController.navigate(R.id.homeFragment)
     }
 
     fun testButtonClicked(view : View){
 
-        val fragmentManager=supportFragmentManager
-        val fragmentTransaction=fragmentManager.beginTransaction()
-        val testFragment=TestFragment()
-        fragmentTransaction.replace(R.id.fragmentContainerView,testFragment).commit()
+//        val fragmentManager=supportFragmentManager
+//        val fragmentTransaction=fragmentManager.beginTransaction()
+//        val testFragment=TestFragment()
+//        fragmentTransaction.replace(R.id.fragmentContainerView,testFragment).commit()
 
         //Navigation.findNavController(view).navigate(R.id.testFragment)
+
+        var navController = Navigation.findNavController(this, R.id.fragmentContainerView)
+
+        navController.navigate(R.id.testFragment)
 
 
     }
 
     fun resultsButtonClicked(view : View){
-        val fragmentManager=supportFragmentManager
-        val fragmentTransaction=fragmentManager.beginTransaction()
-        val resultsFragment=ResultsFragment()
-        fragmentTransaction.replace(R.id.fragmentContainerView,resultsFragment).commit()
+//        val fragmentManager=supportFragmentManager
+//        val fragmentTransaction=fragmentManager.beginTransaction()
+//        val resultsFragment=ResultsFragment()
+//        fragmentTransaction.replace(R.id.fragmentContainerView,resultsFragment).commit()
+
+        var navController = Navigation.findNavController(this, R.id.fragmentContainerView)
+
+        navController.navigate(R.id.resultsFragment)
 
     }
 }

@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.alisiyararslan.depressiontest.R
 import com.alisiyararslan.depressiontest.databinding.FragmentHomeBinding
 import com.alisiyararslan.depressiontest.databinding.FragmentTestBinding
@@ -28,6 +30,9 @@ class TestFragment : Fragment() {
 
 
 
+
+
+
     }
 
     override fun onCreateView(
@@ -39,6 +44,19 @@ class TestFragment : Fragment() {
 
         val view = binding.root
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        testFragmentStartTestButton.setOnClickListener {
+            //val action=TestFragmentDirections.actionTestFragmentToQuestionFragment()
+            //Navigation.findNavController(it).navigate(action)
+
+            var navController = NavHostFragment.findNavController(this)
+            val action=TestFragmentDirections.actionTestFragmentToQuestionFragment()
+            navController.navigate(action)
+        }
     }
 
 
