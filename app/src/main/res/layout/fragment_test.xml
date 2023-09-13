@@ -16,7 +16,7 @@
         android:textSize="16dp"
         android:textColor="@color/black"
         android:padding="10dp"
-        android:text="test test"
+        android:text="Instructions: Choose option to indicate how much you have experienced each symptom during the past week, including to day. Please answer all 25 items."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

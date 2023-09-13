@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.alisiyararslan.depressiontest.R
+import com.alisiyararslan.depressiontest.databinding.FragmentHomeBinding
 import com.alisiyararslan.depressiontest.databinding.FragmentTestBinding
+import kotlinx.android.synthetic.main.fragment_test.*
 
 
 class TestFragment : Fragment() {
@@ -20,9 +22,11 @@ class TestFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val sourceString = "<b>Instructions:</b> Choose option to indicate how much you have experienced each symptom during the past week, including to day. Please answer all 25 items."
+        //val sourceString = "<b>Instructions:</b> Choose option to indicate how much you have experienced each symptom during the past week, including to day. Please answer all 25 items."
 
-        binding.testFragmentInstructionTextView.setText(Html.fromHtml(sourceString))
+        //binding.testFragmentInstructionTextView.setText(Html.fromHtml(sourceString))
+
+
 
     }
 
@@ -30,8 +34,11 @@ class TestFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_test, container, false)
+        _binding = FragmentTestBinding.inflate(inflater, container, false)
+
+
+        val view = binding.root
+        return view
     }
 
 
