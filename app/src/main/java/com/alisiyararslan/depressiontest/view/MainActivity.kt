@@ -1,7 +1,8 @@
-package com.alisiyararslan.depressiontest
+package com.alisiyararslan.depressiontest.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.alisiyararslan.depressiontest.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
