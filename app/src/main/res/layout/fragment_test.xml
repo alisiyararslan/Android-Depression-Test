@@ -25,9 +25,9 @@
         android:id="@+id/testFragmentStartTestButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="75dp"
-        android:text="I want to start test"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="40dp"
+        android:text="I want to start the test"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
