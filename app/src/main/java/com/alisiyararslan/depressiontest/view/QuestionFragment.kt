@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.NavHostFragment
+import androidx.room.Room
 import com.alisiyararslan.depressiontest.R
 import com.alisiyararslan.depressiontest.databinding.FragmentHomeBinding
 import com.alisiyararslan.depressiontest.databinding.FragmentQuestionBinding
@@ -73,6 +74,9 @@ class QuestionFragment : Fragment() {
         questionList.add("Do you have any suicidal thoughts?")
         questionList.add("Would you like to end your life?")
         questionList.add("Do you have a plan for harming yourself?")
+
+        db= Room.databaseBuilder(requireContext(),TestDatabase::class.java,"Tests").build()
+        testDao=db.testDao()
 
     }
 
@@ -168,13 +172,6 @@ class QuestionFragment : Fragment() {
             alert.setPositiveButton("I'm curious"){dialog,which ->
 
                 try {
-//                    val myFormat = "dd-MM-yyyy"
-//                    val sdf = SimpleDateFormat(myFormat, Locale.UK)
-//                    val formatter = DateTimeFormatter.ofPattern(myFormat)
-//                    val current = LocalDateTime.now().format(formatter)
-
-//                    val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-//                    val currentDate = sdf.format(Date())
 
                     var newTest = Test(totalScore, Date())
 
@@ -190,7 +187,7 @@ class QuestionFragment : Fragment() {
                 }
 
                 var navController = NavHostFragment.findNavController(this)
-                val action=QuestionFragmentDirections.actionQuestionFragmentToResultsFragment(totalScore)
+                val action=QuestionFragmentDirections.actionQuestionFragmentToResultsFragment(totalScore, "QuestionFragment")
 
                 navController.navigate(action)
             }

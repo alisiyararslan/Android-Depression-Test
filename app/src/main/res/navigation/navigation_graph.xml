@@ -39,6 +39,12 @@
         tools:layout="@layout/fragment_results" >
         <argument
             android:name="testResult"
-            app:argType="integer" />
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="infoFromWhere"
+            app:argType="string"
+            android:defaultValue="null"
+            app:nullable="true" />
     </fragment>
 </navigation>
