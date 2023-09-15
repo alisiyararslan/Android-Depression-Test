@@ -11,7 +11,19 @@ import androidx.navigation.fragment.NavHostFragment
 import com.alisiyararslan.depressiontest.R
 import com.alisiyararslan.depressiontest.databinding.FragmentHomeBinding
 import com.alisiyararslan.depressiontest.databinding.FragmentQuestionBinding
+import com.alisiyararslan.depressiontest.model.Test
+import com.alisiyararslan.depressiontest.roomdb.TestDao
+import com.alisiyararslan.depressiontest.roomdb.TestDatabase
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_question.*
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class QuestionFragment : Fragment() {
@@ -27,6 +39,11 @@ class QuestionFragment : Fragment() {
     private var questionList = ArrayList<String>()
 
     private var lastQuestionScore : Int = -1
+
+    private var compositeDisposible= CompositeDisposable()
+
+    private lateinit var db: TestDatabase
+    private lateinit var testDao: TestDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -150,8 +167,30 @@ class QuestionFragment : Fragment() {
 
             alert.setPositiveButton("I'm curious"){dialog,which ->
 
+                try {
+//                    val myFormat = "dd-MM-yyyy"
+//                    val sdf = SimpleDateFormat(myFormat, Locale.UK)
+//                    val formatter = DateTimeFormatter.ofPattern(myFormat)
+//                    val current = LocalDateTime.now().format(formatter)
+
+//                    val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+//                    val currentDate = sdf.format(Date())
+
+                    var newTest = Test(totalScore, Date())
+
+                    compositeDisposible.add(
+                        testDao.insert(newTest!!)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe()
+                    )
+
+                }catch (e:Exception){
+                    e.printStackTrace()
+                }
+
                 var navController = NavHostFragment.findNavController(this)
-                val action=QuestionFragmentDirections.actionQuestionFragmentToResultsFragment()
+                val action=QuestionFragmentDirections.actionQuestionFragmentToResultsFragment(totalScore)
 
                 navController.navigate(action)
             }

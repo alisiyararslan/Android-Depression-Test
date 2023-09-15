@@ -36,5 +36,9 @@
         android:id="@+id/resultsFragment"
         android:name="com.alisiyararslan.depressiontest.view.ResultsFragment"
         android:label="fragment_results"
-        tools:layout="@layout/fragment_results" />
+        tools:layout="@layout/fragment_results" >
+        <argument
+            android:name="testResult"
+            app:argType="integer" />
+    </fragment>
 </navigation>
