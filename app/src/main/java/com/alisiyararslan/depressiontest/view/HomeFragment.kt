@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.alisiyararslan.depressiontest.R
 import com.alisiyararslan.depressiontest.databinding.FragmentHomeBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class HomeFragment : Fragment() {
@@ -36,12 +37,15 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.buttonFragmentHome.setOnClickListener {
-//            val action=HomeFragmentDirections.actionHomeFragmentToTestFragment()
-//            Navigation.findNavController(it).navigate(action)
-//
-//            //Navigation.findNavController(view).navigate(R.id.testFragment)
-//        }
+
+
+        requireActivity().southMenu.visibility = View.VISIBLE// update south menu visibility
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        _binding = null
     }
 
 

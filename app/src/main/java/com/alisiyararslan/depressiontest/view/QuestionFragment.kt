@@ -18,6 +18,8 @@ import com.alisiyararslan.depressiontest.roomdb.TestDatabase
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_question.*
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -101,7 +103,7 @@ class QuestionFragment : Fragment() {
             previousQuestionButton.visibility = View.INVISIBLE
         }
 
-
+        requireActivity().southMenu.visibility = View.GONE// update south menu visibility
 
 
 
@@ -234,6 +236,12 @@ class QuestionFragment : Fragment() {
         totalScore += 4
         lastQuestionScore = 4
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        compositeDisposible.clear()
+        _binding = null
     }
 
 

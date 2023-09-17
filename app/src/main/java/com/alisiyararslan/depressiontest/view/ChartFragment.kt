@@ -22,6 +22,7 @@ import com.github.mikephil.charting.data.LineDataSet
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.Collections.reverse
 
 
@@ -75,17 +76,7 @@ class ChartFragment : Fragment() {
             cnt+=1f
 
         }
-/*
-        entries.add(Entry(1f, 10f))
-        entries.add(Entry(2f, 2f))
-        entries.add(Entry(3f, 7f))
-        entries.add(Entry(4f, 20f))
-        entries.add(Entry(5f, 16f))
-        entries.add(Entry(6f, 10f))
-        entries.add(Entry(7f, 2f))
-        entries.add(Entry(8f, 7f))
-        entries.add(Entry(9f, 20f))
-        entries.add(Entry(10f, 16f))*/
+
 
 
 
@@ -125,6 +116,17 @@ class ChartFragment : Fragment() {
 
         mpLineChart.data = LineData(vl)
         mpLineChart.invalidate()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        requireActivity().southMenu.visibility = View.VISIBLE// update south menu visibility
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        compositeDisposible.clear()
+        _binding = null
     }
 
 

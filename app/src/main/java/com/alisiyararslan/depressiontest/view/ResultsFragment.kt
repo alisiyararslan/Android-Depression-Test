@@ -25,6 +25,7 @@ import com.github.mikephil.charting.formatter.ValueFormatter
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_results.*
 
 
@@ -76,6 +77,8 @@ class ResultsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        requireActivity().southMenu.visibility = View.VISIBLE// update south menu visibility
+
         lookEvaluationChart.setOnClickListener {
             var navController = NavHostFragment.findNavController(this)
             val action=ResultsFragmentDirections.actionResultsFragmentToChartFragment()
@@ -117,6 +120,12 @@ class ResultsFragment : Fragment() {
         }
 
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        compositeDisposible.clear()
+        _binding = null
     }
 
 
