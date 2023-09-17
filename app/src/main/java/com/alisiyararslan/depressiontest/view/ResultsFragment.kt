@@ -59,7 +59,7 @@ class ResultsFragment : Fragment() {
 
     fun handleResponse(testList:List<Test>){
         binding.recyclerView.layoutManager= LinearLayoutManager(requireContext())
-        val adapter=TestAdapter(ArrayList(testList))
+        val adapter=TestAdapter(ArrayList(testList.reversed()))
         binding.recyclerView.adapter=adapter
 
     }
@@ -86,6 +86,7 @@ class ResultsFragment : Fragment() {
 
             val info=ResultsFragmentArgs.fromBundle(it).infoFromWhere
             if (info.equals("QuestionFragment")){
+                newTestResult.visibility = View.VISIBLE
                 resultFragmentTestScoreTextView.visibility = View.VISIBLE
                 resultFragmentDepressionLevelTextView.visibility = View.VISIBLE
 
@@ -108,6 +109,7 @@ class ResultsFragment : Fragment() {
 
             }else{
                 // If arguments is null, execute this block
+                newTestResult.visibility = View.GONE
                 resultFragmentTestScoreTextView.visibility = View.GONE
                 resultFragmentDepressionLevelTextView.visibility = View.GONE
             }

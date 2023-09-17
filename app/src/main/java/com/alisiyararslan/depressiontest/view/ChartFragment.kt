@@ -22,6 +22,7 @@ import com.github.mikephil.charting.data.LineDataSet
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import java.util.Collections.reverse
 
 
 class ChartFragment : Fragment() {
@@ -66,6 +67,7 @@ class ChartFragment : Fragment() {
         var entries  =  ArrayList<Entry>()
         mpLineChart = binding.lineChart
 
+
         var cnt : Float = 1f
         testList.forEach{
 //            dataVals.add(Entry(it.date,it.testScore))
@@ -84,6 +86,8 @@ class ChartFragment : Fragment() {
         entries.add(Entry(8f, 7f))
         entries.add(Entry(9f, 20f))
         entries.add(Entry(10f, 16f))*/
+
+
 
         val vl = LineDataSet(entries,"My Data" )
 
