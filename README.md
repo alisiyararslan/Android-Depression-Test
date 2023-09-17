@@ -1,5 +1,7 @@
 # Android-Depression-Test
 
+While this application was being developed, it was adapted from David Burns' "Burns Depression Scale". Depression Test application contains 25 questions and users can answer these questions starting from "Not At All" to "Extremely". People using the Depression Test app can rate their own symptoms and find a semi-reliable indicator of the presence or absence of depression symptoms. Depression Test application cannot be used for diagnosis or treatment purposes in any way. For conditions requiring diagnosis and treatment, please contact the competent authorities.
+
 **Used Technologies:** Kotlin, Fragment, Navigation, RxJava, Room, MPAndroidChart
 
 **Home Page:** The user encounters this page when he first opens the application. On this page, the user is given brief information about how to use the application. There is a south menu at the bottom. The same menu is used on all pages belonging to the application (main activity), not to the page (fragment).
