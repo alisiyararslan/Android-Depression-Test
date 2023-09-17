@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ChartFragment">
+    android:background="#F1FFF9"
+    tools:context=".view.ChartFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/resultFragmentHeadingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Evolution of Depression"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+         />
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/lineChart"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
     </com.github.mikephil.charting.charts.LineChart>
 
-</androidx.constraintlayout.widget.ConstraintLayout >
+</LinearLayout >

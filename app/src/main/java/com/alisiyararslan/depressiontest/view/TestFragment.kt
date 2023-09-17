@@ -23,20 +23,8 @@ class TestFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -78,9 +66,6 @@ class TestFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-
         _binding = null
     }
-
-
 }

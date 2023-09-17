@@ -22,18 +22,9 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-
-
-
     }
 
     fun homeButtonClicked(view : View){
-
-//        val fragmentManager=supportFragmentManager
-//        val fragmentTransaction=fragmentManager.beginTransaction()
-//
-//        val homeFragment=HomeFragment()
-//        fragmentTransaction.replace(R.id.fragmentContainerView,homeFragment).commit()
 
         var navController = Navigation.findNavController(this, R.id.fragmentContainerView)
 
@@ -42,25 +33,13 @@ class MainActivity : AppCompatActivity() {
 
     fun testButtonClicked(view : View){
 
-//        val fragmentManager=supportFragmentManager
-//        val fragmentTransaction=fragmentManager.beginTransaction()
-//        val testFragment=TestFragment()
-//        fragmentTransaction.replace(R.id.fragmentContainerView,testFragment).commit()
-
-        //Navigation.findNavController(view).navigate(R.id.testFragment)
-
         var navController = Navigation.findNavController(this, R.id.fragmentContainerView)
 
         navController.navigate(R.id.testFragment)
 
-
     }
 
     fun resultsButtonClicked(view : View){
-//        val fragmentManager=supportFragmentManager
-//        val fragmentTransaction=fragmentManager.beginTransaction()
-//        val resultsFragment=ResultsFragment()
-//        fragmentTransaction.replace(R.id.fragmentContainerView,resultsFragment).commit()
 
         var navController = Navigation.findNavController(this, R.id.fragmentContainerView)
 

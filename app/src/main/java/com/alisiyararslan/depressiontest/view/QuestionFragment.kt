@@ -88,7 +88,6 @@ class QuestionFragment : Fragment() {
     ): View? {
         _binding = FragmentQuestionBinding.inflate(inflater, container, false)
 
-
         val view = binding.root
         return view
     }
@@ -104,8 +103,6 @@ class QuestionFragment : Fragment() {
         }
 
         requireActivity().southMenu.visibility = View.GONE// update south menu visibility
-
-
 
         notAttAllButton.setOnClickListener {
             questionButtonClicked()
@@ -137,8 +134,6 @@ class QuestionFragment : Fragment() {
             previousQuestionButtonClicked()
         }
     }
-
-
 
     private fun previousQuestionButtonClicked() {
         currentQuestion -= 2
@@ -243,16 +238,5 @@ class QuestionFragment : Fragment() {
         compositeDisposible.clear()
         _binding = null
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }

@@ -54,5 +54,9 @@
         android:id="@+id/chartFragment"
         android:name="com.alisiyararslan.depressiontest.view.ChartFragment"
         android:label="fragment_chart"
-        tools:layout="@layout/fragment_chart" />
+        tools:layout="@layout/fragment_chart" >
+        <action
+            android:id="@+id/action_chartFragment_to_resultsFragment"
+            app:destination="@id/resultsFragment" />
+    </fragment>
 </navigation>

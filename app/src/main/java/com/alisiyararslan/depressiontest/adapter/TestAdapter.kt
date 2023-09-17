@@ -34,7 +34,7 @@ class TestAdapter(val testList:ArrayList<Test>): RecyclerView.Adapter<TestAdapte
         val myFormat = "dd-MM-yyyy HH:mm"
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
 
-        holder.binding.recyclerViewTextView.text= "Date: "+sdf.format(testList.get(position).date) +"     Score: "+ testList.get(position).testScore.toString()
+        holder.binding.recyclerViewTextView.text= " Date: "+sdf.format(testList.get(position).date) +"     Score: "+ testList.get(position).testScore.toString()
 
 
     }

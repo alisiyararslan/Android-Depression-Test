@@ -32,7 +32,6 @@ import kotlinx.android.synthetic.main.fragment_results.*
 
 class ResultsFragment : Fragment() {
 
-
     private var _binding: FragmentResultsBinding? = null
 
     private val binding get() = _binding!!
@@ -41,7 +40,6 @@ class ResultsFragment : Fragment() {
     private lateinit var artDao: TestDao
 
     private var compositeDisposible= CompositeDisposable()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +77,7 @@ class ResultsFragment : Fragment() {
 
         requireActivity().southMenu.visibility = View.VISIBLE// update south menu visibility
 
-        lookEvaluationChart.setOnClickListener {
+        lookEvolutionChart.setOnClickListener {
             var navController = NavHostFragment.findNavController(this)
             val action=ResultsFragmentDirections.actionResultsFragmentToChartFragment()
             navController.navigate(action)
@@ -119,7 +117,6 @@ class ResultsFragment : Fragment() {
 
         }
 
-
     }
 
     override fun onDestroyView() {
@@ -127,8 +124,5 @@ class ResultsFragment : Fragment() {
         compositeDisposible.clear()
         _binding = null
     }
-
-
-
 
 }

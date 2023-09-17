@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
+import androidx.navigation.Navigation
 import androidx.room.Room
 import com.alisiyararslan.depressiontest.R
 import com.alisiyararslan.depressiontest.databinding.FragmentChartBinding
@@ -46,6 +48,12 @@ class ChartFragment : Fragment() {
         db= Room.databaseBuilder(requireContext(),TestDatabase::class.java,"Tests").build()
         artDao=db.testDao()
 
+        // For the back button to work properly
+        val callback = requireActivity().onBackPressedDispatcher.addCallback(this){
+            val action=ChartFragmentDirections.actionChartFragmentToResultsFragment()
+            Navigation.findNavController(requireView()).navigate(action)
+        }
+
         compositeDisposible.add(
             artDao.getAll()
                 .subscribeOn(Schedulers.io())
@@ -69,23 +77,18 @@ class ChartFragment : Fragment() {
         mpLineChart = binding.lineChart
 
 
-        var cnt : Float = 1f
+        var count : Float = 1f
         testList.forEach{
-//            dataVals.add(Entry(it.date,it.testScore))
-            entries.add(Entry(cnt,(it.testScore).toFloat()))
-            cnt+=1f
+            entries.add(Entry(count,(it.testScore).toFloat()))
+            count+=1f
 
         }
 
-
-
-
         val vl = LineDataSet(entries,"My Data" )
 
-
-        mpLineChart.setBackgroundColor(Color.LTGRAY)
+        mpLineChart.setBackgroundColor(Color.rgb(232,252,242))
         mpLineChart.setNoDataText("Saved test result not found, solve the test first.")
-        mpLineChart.setNoDataTextColor(Color.GREEN)
+        mpLineChart.setNoDataTextColor(Color.RED)
         mpLineChart.setDrawGridBackground(true)
         mpLineChart.setDrawBorders(true)
 
@@ -104,8 +107,6 @@ class ChartFragment : Fragment() {
         legend.textSize = 10f
         legend.form = Legend.LegendForm.LINE
         legend.formSize = 20f
-
-
 
         //The text explaining the x-axis in the lower right corner of the chart
         var description : Description = Description()
@@ -128,6 +129,5 @@ class ChartFragment : Fragment() {
         compositeDisposible.clear()
         _binding = null
     }
-
 
 }
