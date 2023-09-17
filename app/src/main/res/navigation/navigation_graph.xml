@@ -46,5 +46,13 @@
             app:argType="string"
             android:defaultValue="null"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_resultsFragment_to_chartFragment"
+            app:destination="@id/chartFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/chartFragment"
+        android:name="com.alisiyararslan.depressiontest.view.ChartFragment"
+        android:label="fragment_chart"
+        tools:layout="@layout/fragment_chart" />
 </navigation>

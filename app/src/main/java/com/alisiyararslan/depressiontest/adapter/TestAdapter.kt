@@ -22,6 +22,8 @@ class TestAdapter(val testList:ArrayList<Test>): RecyclerView.Adapter<TestAdapte
     }
 
     override fun onBindViewHolder(holder: TestHolder, position: Int) {
-        holder.binding.recyclerViewTextView.text=testList.get(position).dueDate.toString() + testList.get(position).testScore.toString()
+        holder.binding.recyclerViewTextView.text=testList.get(position).date.toString() +" "+ testList.get(position).testScore.toString()
+
+
     }
 }

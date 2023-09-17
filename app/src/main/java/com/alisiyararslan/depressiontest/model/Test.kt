@@ -12,7 +12,7 @@ class Test(
     var testScore:Int,
 
     @TypeConverters(DateTypeConverter::class)
-    var dueDate: Date,
+    var date: Date,
 ) {
     @PrimaryKey(autoGenerate = true)
     var id = 0
